@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Marketplace</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#categories"><i class="fas fa-th"></i> Categories</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="#login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <div class="home-content">
+                <h2>Welcome to Our Marketplace</h2>
+                <p>Find the best products at the best prices.</p>
+                <a href="#categories" class="btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Our marketplace offers a diverse range of products from various categories, ensuring quality and affordability. We aim to provide an excellent shopping experience with features like real-time analytics, integrated systems, and customizable options.</p>
+        </div>
+    </section>
+
+    <section id="categories">
+        <div class="container">
+            <h2>Categories</h2>
+            <div class="categories-grid">
+                <div class="category">
+                    <i class="fas fa-mobile-alt fa-2x"></i>
+                    <h3>Electronics</h3>
+                    <p>Latest gadgets and electronics at unbeatable prices.</p>
+                </div>
+                <div class="category">
+                    <i class="fas fa-tshirt fa-2x"></i>
+                    <h3>Fashion</h3>
+                    <p>Trendy and stylish clothing for all seasons.</p>
+                </div>
+                <div class="category">
+                    <i class="fas fa-home fa-2x"></i>
+                    <h3>Home & Living</h3>
+                    <p>Decor and furniture to make your house a home.</p>
+                </div>
+                <div class="category">
+                    <i class="fas fa-book fa-2x"></i>
+                    <h3>Books</h3>
+                    <p>Wide range of books for all ages and interests.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form action="{% url 'contact' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send</button>
+            </form>
+        </div>
+    </section>
+
+<section id="login">
+    <div class="container">
+        <h2>Login</h2>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+              <p>Don't have an account? <a href="{% url 'register' %}">Click to register</a>.</p>
+        </form>
+    </div>
+</section>
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Marketplace. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
